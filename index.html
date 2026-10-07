@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="description" content="Portafolio digital de Base de Datos II de Dilmer Yupanqui Maldonado, organizado por unidades y semanas.">
+  <title>Portafolio BD II · UPLA 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header id="hdr">
+    <div class="hdr-in">
+      <a href="#inicio" class="brand" onclick="ir('home'); return false" aria-label="Ir al inicio del Portafolio BD II">
+        <img src="logo upla.png" alt="Logo UPLA">
+        <span class="brand-t">
+          <span class="bu">PORTAFOLIO BD II</span>
+          <span class="bs">UPLA · DILMER YUPANQUI</span>
+        </span>
+      </a>
+      <nav id="nav" aria-label="Navegación principal">
+        <button class="nl on" id="n-home" type="button" onclick="ir('home')">Inicio</button>
+        <button class="nl" id="n-u1" type="button" onclick="ir('u1')">Unidad I</button>
+        <button class="nl" id="n-u2" type="button" onclick="ir('u2')">Unidad II</button>
+        <button class="nl" id="n-u3" type="button" onclick="ir('u3')">Unidad III</button>
+        <button class="nl" id="n-u4" type="button" onclick="ir('u4')">Unidad IV</button>
+      </nav>
+      <div class="hdr-r">
+        <button class="tbtn" id="tbtn" type="button" onclick="toggleTema()" aria-label="Cambiar tema" title="Cambiar tema">☀️</button>
+        <button class="lbtn" id="refresh-btn" type="button" onclick="actualizarTrabajos()" title="Volver a consultar las imágenes del repositorio">↻ <span>Actualizar</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="pg-home" class="pg">
+      <div class="hero">
+        <div class="profile-card">
+          <div class="profile-img-container">
+            <img src="deym.png" alt="Dilmer Yupanqui" class="profile-img">
+          </div>
+          <div class="profile-info">
+            <span class="profile-label">Autor del Portafolio</span>
+            <h2 class="profile-name">Yupanqui Maldonado Dilmer Esmith</h2>
+          </div>
+        </div>
+        <span class="chip">🎓 Ciclo Académico 2026 · UPLA</span>
+        <h1 class="big">Portafolio Digital <span class="grad">Base de Datos II</span></h1>
+        <p>Repositorio centralizado de trabajos, prácticas y proyectos del curso. Organizado por unidades y semanas, con imágenes JPG que se actualizan desde GitHub.</p>
+        <div class="hbtns">
+          <button class="btn" type="button" onclick="ir('u1')">📚 Ver Trabajos</button>
+          <a class="btn2" id="repo-link" href="#" target="_blank" rel="noopener noreferrer">🔗 GitHub Repo</a>
+        </div>
+      </div>
+      <div class="ucg">
+        <button class="uc" type="button" onclick="ir('u1')"><h3>📖 Unidad I</h3><p>Introducción y Modelo Relacional</p></button>
+        <button class="uc" type="button" onclick="ir('u2')"><h3>🎯 Unidad II</h3><p>Diseño y Normalización</p></button>
+        <button class="uc" type="button" onclick="ir('u3')"><h3>⚡ Unidad III</h3><p>SQL Avanzado</p></button>
+        <button class="uc" type="button" onclick="ir('u4')"><h3>🌐 Unidad IV</h3><p>Bases de Datos NoSQL</p></button>
+      </div>
+    </section>
+
+    <section id="pg-unidad" class="pg hid" aria-live="polite">
+      <div class="uwrap">
+        <div class="uhead-main">
+          <div class="ubadge" id="ubadge">I</div>
+          <div>
+            <h1 id="utitle">Unidad I</h1>
+            <p class="usub" id="usub">Descripción de la unidad</p>
+          </div>
+        </div>
+        <div class="sync-note">
+          <span class="sync-icon" aria-hidden="true">↻</span>
+          <p id="sync-status" role="status">Los trabajos se consultan desde el repositorio de GitHub.</p>
+          <button class="sync-link" type="button" onclick="actualizarTrabajos()">Actualizar lista</button>
+        </div>
+        <div class="wlist" id="wlist"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Portafolio Digital · Base de Datos II · UPLA 2026</footer>
+  <div id="toasts" aria-live="polite" aria-atomic="true"></div>
+  <aside id="ai-bubble" aria-label="Asistente del portafolio">
+    <div class="ai-bot" aria-hidden="true">🤖</div>
+    <p class="ai-msg" id="ai-text-response">¡Hola! Soy tu asistente. ¿En qué puedo ayudarte?</p>
+    <input type="text" id="ai-input" class="ai-in" placeholder="Pregúntame algo…" aria-label="Pregunta al asistente" onkeyup="handleAiInput(event)">
+  </aside>
+</body>
+</html>
